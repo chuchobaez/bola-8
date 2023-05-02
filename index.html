@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bola 8 Mágica</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h1>Bola 8 Mágica</h1>
+		<div class="form-group">
+			<label for="pregunta">Haz una pregunta:</label>
+			<input type="text" class="form-control" id="pregunta">
+		</div>
+		<button type="button" class="btn btn-primary" id="btn-pregunta">Haz tu pregunta</button>
+		<div id="respuesta"></div>
+	</div>
+</body>
+<script>
+    $(document).ready(function(){
+        $("#btn-pregunta").click(function(){
+            var pregunta = $("#pregunta").val(); // Obtener el valor del campo de entrada
+            if (pregunta == "") { // Verificar si el campo está vacío
+                alert("Debes escribir una pregunta.");
+                return false; // Detener la ejecución de la función
+            }
+            var respuestas = [
+                "Sí",
+                "No",
+                "Tal vez",
+                "Probablemente",
+                "No lo sé",
+                "Pregunta de nuevo más tarde",
+                "Es mejor que no te lo diga ahora",
+                "No puedo predecirlo ahora"
+            ];
+            var respuesta = respuestas[Math.floor(Math.random()*respuestas.length)];
+            $("#respuesta").html("<p>" + respuesta + "</p>");
+        });
+    });
+    </script>
+    
+    <style>
+        h1 {
+            text-align: center;
+        }
+        .form-group {
+            margin-top: 30px;
+        }
+        #respuesta {
+            margin-top: 30px;
+            text-align: center;
+        }
+        </style>
+        
+</html>
+
